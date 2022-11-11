@@ -1,0 +1,10 @@
+[controller]
+node_controller_1
+
+[dm]
+node_dm_1
+node_dm_2
+
+[cluster:children]
+controller
+dm

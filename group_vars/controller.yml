@@ -1,0 +1,10 @@
+kibana_host: '{{ ansible_host }}'
+es_config:
+  node.name: '{{ ansible_host }}'
+  cluster.name: stage_elk_cluster
+  network.host: ['{{ ansible_host }}', localhost]
+  node.master: false
+  node.data: false
+  node.ingest: false
+  discovery.zen.minimum_master_nodes: 2
+  discovery.zen.ping.unicast.hosts: '{{ cluster_list }}'

@@ -1,0 +1,22 @@
+- name: Install elasticsearch and configure cluster
+  hosts: all
+  gather_facts: yes
+  vars:
+    cluster_list: "{{ groups['cluster'] | map ('extract', hostvars, ['ansible_default_ipv4', 'address']) |  join (',') }}"
+    elastic_branch: 7
+#    elasticsearch_xmx: 4g
+#    elasticsearch_xms: 4g
+
+  roles:
+   - role: lean_delivery.java
+   - role: lean_delivery.elasticsearch
+
+
+- name: Install kibana on controller node
+  hosts: controller
+  gather_facts: yes
+  vars:
+    elastic_branch: 7
+
+  roles:
+    - role: lean_delivery.kibana

@@ -1,0 +1,10 @@
+[controller]
+10.0.1.4
+
+[dm]
+10.0.1.205
+10.0.1.132
+
+[cluster:children]
+controller
+dm

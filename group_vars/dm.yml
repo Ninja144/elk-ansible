@@ -1,0 +1,8 @@
+es_config:
+  node.name: '{{ ansible_host }}'
+  cluster.name: stage_elk_cluster
+  network.host: ['{{ ansible_host }}', localhost]
+  node.master: true
+  node.data: true
+  discovery.zen.minimum_master_nodes: 2
+  discovery.zen.ping.unicast.hosts: '{{ cluster_list }}'
